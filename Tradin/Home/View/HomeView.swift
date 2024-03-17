@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @State var currentListName = "Default"
     @State var watchListTouched : Bool = false
+    @State var createWatchListTouched : Bool = false
+    @State var createdWatchListName = ""
     
     var body: some View {
         NavigationStack{
@@ -20,6 +22,7 @@ struct HomeView: View {
                         VStack(alignment: .leading){
                             Text("Investing")
                                 .font(.custom(fonts.medium, size: 30))
+                                .foregroundStyle(Color.gray)
                             
                             HStack(spacing: 0){
                                 Text("$")
@@ -60,13 +63,26 @@ struct HomeView: View {
                                 }
                                 .buttonStyle(.plain)
                                 
+                                Button{
+                                    createWatchListTouched.toggle()
+                                }label: {
+                                    Image(systemName: "plus")
+                                        .fontWeight(.semibold)
+                                        .tint(themeColor)
+                                }
+                                
+                                
                             }
                             
-                            WatchListView()
+                            StockListView()
                                 .padding(.vertical, 10)
                         }
                         .padding(10)
                     }
+                }
+                
+                if createWatchListTouched{
+                    DialogView(dialogViewHeader: .constant("Add WatchList"), dialogViewBody: .constant(""), textField : .constant(true), createdWatchListName: $createdWatchListName, dialogViewAppearance: $createWatchListTouched, dialogViewButtonText: .constant("Create"), onDialogButtonClick: onDialogButtonClickFunc)
                 }
                 
                 if watchListTouched{
@@ -98,6 +114,11 @@ struct HomeView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
+    }
+    
+    private func onDialogButtonClickFunc(){
+        print("button clicked..")
+        createWatchListTouched.toggle()
     }
 }
 
