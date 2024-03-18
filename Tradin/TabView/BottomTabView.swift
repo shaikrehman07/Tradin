@@ -27,7 +27,7 @@ struct BottomTabView: View {
                 Text("Transactions")
             }
             
-            ProfileView().tabItem {
+            AccountView().tabItem {
                 Image(systemName: "person.fill")
                 Text("Profile")
             }
