@@ -21,16 +21,17 @@ struct OrderFieldsView: View {
                 
                 HStack{
                     Text("Limit Price")
-                        .font(.custom(fonts.medium, size: 22))
+                        .font()
                     
-                    TextField("", text: $limitPrice).keyboardType(.decimalPad)
-                        .font(.custom(fonts.medium, size: 22))
+                    TextField("", text: $limitPrice)
+                        .keyboardType(.decimalPad)
+                        .font()
                         .foregroundStyle(Color.black.opacity(0.65))
                         .multilineTextAlignment(.trailing)
                     
                     
                     Text("USD")
-                        .font(.custom(fonts.medium, size: 22))
+                        .font()
                 }
                 .padding(.vertical, 10)
                 .padding(.horizontal, 8)
@@ -40,17 +41,17 @@ struct OrderFieldsView: View {
                 
                 HStack{
                     Text("Quantity")
-                        .font(.custom(fonts.medium, size: 22))
+                        .font()
                     
                     TextField("", text: $stockQuantity)
                         .keyboardType(.decimalPad)
-                        .font(.custom(fonts.medium, size: 22))
+                        .font()
                         .foregroundStyle(Color.black.opacity(0.65))
                         .multilineTextAlignment(.trailing)
                     
                     
                     Text("QT")
-                        .font(.custom(fonts.medium, size: 22))
+                        .font()
                 }
                 
                 Picker("Quantity", selection: $stockQuantity){
@@ -67,7 +68,7 @@ struct OrderFieldsView: View {
                 
             }label: {
                 Text("Buy")
-                    .font(.custom(fonts.medium, size: 22))
+                    .font()
                     .padding(.horizontal, 20)
             }
             .padding(.top, 50)

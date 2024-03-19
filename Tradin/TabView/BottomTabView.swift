@@ -14,7 +14,6 @@ struct BottomTabView: View {
             HomeView().tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
-                    .font(.custom(fonts.medium, size: 12))
             }
             
             TradesView().tabItem {
@@ -22,14 +21,14 @@ struct BottomTabView: View {
                 Text("Trades")
             }
             
-            HistoryView().tabItem {
+            OrdersView().tabItem {
                 Image(systemName: "doc.text.fill")
-                Text("Transactions")
+                Text("Orders")
             }
             
             AccountView().tabItem {
                 Image(systemName: "person.fill")
-                Text("Profile")
+                Text("Account")
             }
         }
         .tint(themeColor)

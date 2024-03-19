@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct HistoryView: View {
+struct OrdersView: View {
     var body: some View {
-        Text("Transactions")
+        Text("Orders")
     }
 }
 
 #Preview {
-    HistoryView()
+    OrdersView()
 }

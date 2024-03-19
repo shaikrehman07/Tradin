@@ -13,12 +13,9 @@ struct SearchView: View {
     
     var body: some View {
         ScrollView{
-            VStack{
-                ForEach(0..<50){ _ in
-                    Text("Search..")
-                }
+            VStack{   
+                
             }
-            .frame(maxWidth: .infinity)
             .searchable(text: $searchText, placement:.navigationBarDrawer(displayMode: .always))
             .autocorrectionDisabled()
         }
@@ -26,7 +23,7 @@ struct SearchView: View {
         .toolbar{
             ToolbarItem(placement: .principal){
                 Text("Assets")
-                    .font(.custom(fonts.medium, size: 18))
+                    .font(size: 18)
             }
         }
         .toolbar{

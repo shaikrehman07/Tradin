@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StockTradeView: View {
-
+    
     @State var orderTypeSelect = "Limit"
     
     let orderTypes = ["Limit", "Market", "Stop", "Stop Limit", "Trailing Stop"]
@@ -18,21 +18,21 @@ struct StockTradeView: View {
             
             Group{
                 Text("Order Type")
-                    .font(.custom(fonts.medium, size: 24))
+                    .font(size: 20)
                 
                 Menu {
                     Picker("", selection: $orderTypeSelect){
-                                        ForEach(orderTypes, id: \.self){order in
-                                            Text(order)
-                                                .font(.custom(fonts.semibold, size: 20))
-                                        }
-                                    }
+                        ForEach(orderTypes, id: \.self){order in
+                            Text(order)
+                        }
+                    }
                 } label: {
-                    HStack{
+                    HStack(spacing: 6){
                         Text(orderTypeSelect)
-                            .font(.custom(fonts.medium, size: 25))
+                            .font(size: 20)
                         Image(systemName: "chevron.down")
-                            .fontWeight(.bold)
+                            .font(size: 14)
+                            .fontWeight(.semibold)
                     }
                     .foregroundStyle(themeColor)
                 }
@@ -42,10 +42,7 @@ struct StockTradeView: View {
             
             OrderFieldsView(orderType: $orderTypeSelect)
         }
-        .padding(.vertical)
-        .onAppear{
-            UISegmentedControl.appearance().setTitleTextAttributes([.font: UIFont(name: fonts.medium, size: 18)!], for: .normal)
-        }
+        
     }
 }
 

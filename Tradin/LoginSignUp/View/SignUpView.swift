@@ -28,66 +28,66 @@ struct SignUpView: View {
                 
                 VStack(alignment: .leading, spacing: 6){
                     Text("Email")
-                        .font(.custom(fonts.medium, size: 20))
+                        .font(size: 18)
                     
                     TextField("email", text: $email)
-                        .font(.custom(fonts.medium, size: 18))
+                        .font()
                         .autocorrectionDisabled()
                         .focused($emailFocus)
                         .textInputAutocapitalization(TextInputAutocapitalization.never)
-                        .padding(10)
-                        .overlay(RoundedRectangle(cornerRadius: 14).stroke(emailFocus ? themeColor : Color.gray, lineWidth: 2.0))
+                        .padding(12)
+                        .textTheme(borderColor: emailFocus ? themeColor : .gray, borderWidth: 2, cornerRadius : 15)
                 }
                 
                 VStack(alignment: .leading, spacing: 6){
                     Text("Password")
-                        .font(.custom(fonts.medium, size: 20))
+                        .font(size: 18)
                     
                     SecureField("password", text: $password)
-                        .font(.custom(fonts.medium, size: 18))
+                        .font()
                         .autocorrectionDisabled()
                         .focused($passwordFocus)
                         .textInputAutocapitalization(TextInputAutocapitalization.never)
-                        .padding(10)
-                        .overlay(RoundedRectangle(cornerRadius: 14).stroke(passwordFocus ? themeColor : Color.gray, lineWidth: 2.0))
+                        .padding(12)
+                        .textTheme(borderColor: passwordFocus ? themeColor : .gray, borderWidth: 2, cornerRadius : 15)
                 }
                 
                 VStack(alignment: .leading, spacing: 6){
                     Text("Confirm Password")
-                        .font(.custom(fonts.medium, size: 20))
+                        .font(size: 18)
                     
                     SecureField("repeat password", text: $confirmPassword)
-                        .font(.custom(fonts.medium, size: 18))
+                        .font()
                         .autocorrectionDisabled()
                         .focused($confirmPasswordFocus)
                         .textInputAutocapitalization(TextInputAutocapitalization.never)
-                        .padding(10)
-                        .overlay(RoundedRectangle(cornerRadius: 14).stroke(!confirmPassword.isEmpty && confirmPassword != password ? errorTextFieldBorderColor : confirmPasswordFocus ? themeColor : Color.gray, lineWidth: 2.0))
+                        .padding(12)
+                        .textTheme(borderColor: !confirmPassword.isEmpty && confirmPassword != password ? errorTextFieldBorderColor : confirmPasswordFocus ? themeColor : Color.gray, borderWidth: 2, cornerRadius : 15)
                 }
                 
                 Button{
                     
                 }label: {
                     Text("Sign up")
-                        .font(.custom(fonts.medium, size: 20))
+                        .font()
                         .foregroundStyle(.white)
-                        .padding(10)
+                        .padding(12)
                         .frame(maxWidth: .infinity)
+                        .textTheme( backgroundColor: themeColor, cornerRadius : 15)
                 }
-                .background(Color(red: 33/255, green: 81/255, blue: 245/255))
-                .clipShape(RoundedRectangle(cornerRadius: 14))
                 .padding(.top, 15)
+                .buttonStyle(.plain)
             }
             
             HStack(spacing: 2){
                 Text("Already using?")
-                    .font(.custom(fonts.medium, size: 16))
+                    .font()
                 
                 Button{
                     presentationMode.wrappedValue.dismiss()
                 }label: {
                     Text("Login")
-                        .font(.custom(fonts.medium, size: 16))
+                        .font()
                         .foregroundStyle(themeColor)
                 }
                 

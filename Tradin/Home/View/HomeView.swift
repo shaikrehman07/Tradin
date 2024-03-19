@@ -21,14 +21,14 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading){
                             Text("Investing")
-                                .font(.custom(fonts.medium, size: 30))
-                                .foregroundStyle(Color.gray)
+                                .font(size: 26)
+                                .foregroundStyle(.gray)
                             
                             HStack(spacing: 0){
                                 Text("$")
-                                    .font(.custom(fonts.medium, size: 30))
+                                    .font(size: 30)
                                 Text("123456789.0")
-                                    .font(.custom(fonts.medium, size: 30))
+                                    .font(size: 28)
                             }
                         }
                         .padding(.horizontal, 12)
@@ -38,7 +38,7 @@ struct HomeView: View {
                         VStack{
                             HStack{
                                 Text("Prices")
-                                    .font(.custom(fonts.medium, size: 20))
+                                    .font(size: 18)
                                 
                                 Spacer()
                                 
@@ -49,17 +49,14 @@ struct HomeView: View {
                                 }label: {
                                     HStack(spacing: 6){
                                         Text(currentListName)
-                                            .font(.custom(fonts.medium, size: 16))
+                                            .font()
                                         Image(systemName: "chevron.down")
-                                            .font(.system(size: 12))
-                                            .fontWeight(.medium)
+                                            .font(size: 12)
+                                            .fontWeight(.semibold)
                                     }
-                                    .foregroundStyle(.black)
-                                    .font(.custom(fonts.medium, size: 16))
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 6)
-                                    .background(.gray.opacity(0.25))
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    .textTheme(fontSize: 16, backgroundColor: .gray.opacity(0.25), cornerRadius : 15)
                                 }
                                 .buttonStyle(.plain)
                                 
@@ -68,7 +65,7 @@ struct HomeView: View {
                                 }label: {
                                     Image(systemName: "plus")
                                         .fontWeight(.semibold)
-                                        .tint(themeColor)
+                                        .foregroundStyle(themeColor)
                                 }
                                 
                                 

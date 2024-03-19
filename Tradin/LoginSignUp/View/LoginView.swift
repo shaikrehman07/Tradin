@@ -19,60 +19,61 @@ struct LoginView: View {
         NavigationStack{
             VStack(alignment: .leading, spacing: 32){
                 Text("Login")
-                    .font(.custom(fonts.medium, size: 50))
+                    .font(size:45)
                 
                 VStack(spacing: 20){
                     
                     VStack(alignment: .leading, spacing: 6){
                         Text("Email")
-                            .font(.custom(fonts.medium, size: 20))
+                            .font(size: 18)
                         
                         TextField("email", text: $email)
-                            .font(.custom(fonts.medium, size: 18))
+                            .font()
+                            .padding(12)
                             .autocorrectionDisabled()
                             .focused($emailFocus)
                             .textInputAutocapitalization(TextInputAutocapitalization.never)
-                            .padding(10)
-                            .overlay(RoundedRectangle(cornerRadius: 14).stroke(emailFocus ? themeColor : Color.gray, lineWidth: 2.0))
+                            .textTheme(borderColor: emailFocus ? themeColor : .gray, borderWidth: 2, cornerRadius : 15)
                     }
                     
                     VStack(alignment: .leading, spacing: 6){
                         Text("Password")
-                            .font(.custom(fonts.medium, size: 20))
+                            .font(size: 18)
                         
                         SecureField("password", text: $password)
-                            .font(.custom(fonts.medium, size: 18))
+                            .font()
+                            .padding(12)
                             .autocorrectionDisabled()
                             .focused($passwordFocus)
                             .textInputAutocapitalization(TextInputAutocapitalization.never)
-                            .padding(10)
-                            .overlay(RoundedRectangle(cornerRadius: 14).stroke(passwordFocus ? themeColor : Color.gray, lineWidth: 2.0))
+                            .textTheme(borderColor: .gray, borderWidth: 2, cornerRadius : 15)
                     }
                     
                     Button{
                         
                     }label: {
                         Text("Login")
-                            .font(.custom(fonts.medium, size: 20))
+                            .font()
                             .foregroundStyle(.white)
-                            .padding(10)
+                            .padding(12)
                             .frame(maxWidth: .infinity)
+                            .textTheme( backgroundColor: themeColor, cornerRadius : 15)
+                        
                     }
-                    .background(Color(red: 33/255, green: 81/255, blue: 245/255))
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
                     .padding(.top, 15)
+                    .buttonStyle(.plain)
                 }
                 
                 HStack(spacing: 2){
                     
                     Text("New to Tradin?")
-                        .font(.custom(fonts.medium, size: 16))
+                        .font()
                     
                     NavigationLink{
                         SignUpView()
                     }label: {
                         Text("Create Account")
-                            .font(.custom(fonts.medium, size: 16))
+                            .font()
                             .foregroundStyle(themeColor)
                     }
                 }

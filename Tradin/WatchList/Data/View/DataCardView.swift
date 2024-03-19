@@ -13,10 +13,10 @@ struct DataCardView: View {
         HStack{
             VStack(alignment: .leading){
                 Text(stockData.stockTicker)
-                    .font(.custom(fonts.semibold, size: 18))
+                    .font(size: 18)
                 Text(stockData.stockName)
                     .lineLimit(1)
-                    .font(.custom(fonts.medium, size: 16))
+                    .font(size: 16)
                     .frame(maxWidth : 150, alignment: .leading)
             }
             
@@ -25,9 +25,9 @@ struct DataCardView: View {
             //should add new view with only price
             HStack(spacing: 0){
                 Text("$")
-                    .font(.custom(fonts.medium, size: 18))
+                    .font(size: 18)
                 Text("170.05")
-                    .font(.custom(fonts.medium, size: 18))
+                    .font(size: 18)
             }
         }
     }

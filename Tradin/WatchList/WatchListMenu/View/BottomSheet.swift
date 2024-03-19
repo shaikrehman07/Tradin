@@ -21,7 +21,7 @@ struct BottomSheet: View {
                 
                 HStack{
                     Text("WatchLists")
-                        .font(.custom(fonts.medium, size: 24))
+                        .font(size: 22)
                     
                     Spacer()
                     
@@ -30,7 +30,7 @@ struct BottomSheet: View {
                     }label: {
                         Image("close-close_symbol")
                             .fontWeight(.semibold)
-                            .font(.system(size: 20))
+                            .font(size: 20)
                     }
                     .tint(.black)
                 }
@@ -47,16 +47,15 @@ struct BottomSheet: View {
                                 
                                 if watchList == watchListselected{
                                     Image("check-check_symbol")
+                                        .font(size: 20)
                                         .fontWeight(.bold)
-                                        .font(.system(size: 22))
                                         .foregroundStyle(themeColor)
                                 }
                             }
-                                .font(.custom(fonts.medium, size: 20))
+                                .font(size: 20)
                                 .padding(10)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .background(watchList == watchListselected ?  RoundedRectangle(cornerRadius: 6).fill(.gray).opacity(0.15) : nil)
-                                .contentShape(Rectangle())
                                 .onTapGesture{
                                     watchListselected = watchList
                                     withAnimation{
